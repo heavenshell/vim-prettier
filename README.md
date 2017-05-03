@@ -1,5 +1,7 @@
 # vim-prettier
 
+[![Build Status](https://travis-ci.org/heavenshell/vim-prettier.svg?branch=master)](https://travis-ci.org/heavenshell/vim-prettier)
+
 Prettier for Vim.
 
 `vim-pritter` is a wrapper of Pritter.
