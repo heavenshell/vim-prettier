@@ -1,0 +1,29 @@
+{
+  "name": "vim-prettier",
+  "version": "1.0.0",
+  "description": "Prettier for Vim",
+  "main": "n/a",
+  "scripts": {
+    "lint": "eslint .",
+    "flow": "flow"
+  },
+  "private": true,
+  "author": "Shinya Ohyanagi",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^7.2.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-register": "^6.24.0",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-flowtype": "^2.30.4",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "flow-bin": "^0.42.0",
+    "npm-run-all": "^4.0.2",
+    "prettier-eslint": "^6.1.2",
+    "prettier-eslint-cli": "^3.4.2"
+  },
+  "dependencies": {}
+}
