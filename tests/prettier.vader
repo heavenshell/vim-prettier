@@ -7,9 +7,7 @@ After (Teardown tests):
 
 Execute:
   let bin = prettier#bin()
-  Log bin
-  Log fnamemodify('node_modules/.bin/prettier-eslint', ':p')
-  AssertEqual bin, fnamemodify('node_modules/.bin/prettier-eslint', ':p')
+  AssertEqual fnamemodify(bin, ':p'), fnamemodify('node_modules/.bin/prettier-eslint', ':p')
 
 Execute:
   :e ./template.js
