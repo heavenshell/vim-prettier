@@ -21,7 +21,7 @@ before_script:
   - cd $HOME/build/heavenshell/vim-prettier/tests
 
 script: |
-  vim -Nu <(cat << VIMRC
+  $HOME/bin/vim/bin/vim -Nu <(cat << VIMRC
   filetype off
   set rtp+=vader.vim
   set rtp+=../.
