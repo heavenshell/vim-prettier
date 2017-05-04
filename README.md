@@ -6,7 +6,19 @@ Prettier for Vim.
 
 ![Asynchronous format](./assets/vim-prettier.gif)
 
-`vim-pritter` is a wrapper of Pritter.
+`vim-pritter` is a wrapper of [Prettier](https://github.com/prettier/prettier).
+
+## Dependencies
+
+`vim-prettier` use [prettier-eslint-cli](https://github.com/prettier/prettier-eslint-cli).
+
+Install [prettier-eslint-cli](https://github.com/prettier/prettier-eslint-cli) global or local.
+
+## Usage
+
+Open JavaScript file and just execute `:Prettier`.
+
+That's it.
 
 ## Motivation
 
