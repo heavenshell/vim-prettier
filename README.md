@@ -4,7 +4,7 @@
 
 Prettier for Vim.
 
-![Asynchronous format](./assets/vim-pritter.gif)
+![Asynchronous format](./assets/vim-prettier.gif)
 
 `vim-pritter` is a wrapper of Pritter.
 
