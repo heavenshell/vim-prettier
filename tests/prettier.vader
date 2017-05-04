@@ -9,19 +9,19 @@ Execute:
   let bin = prettier#bin()
   AssertEqual bin, fnamemodify('./node_modules/.bin/prettier-eslint', ':p')
 
-Execute:
-  :e ./template.js
-  :set ft=javascript
-  :Prettier
-  :sleep 2
-  :w! template.js
-
-Expect javascript:
-  function foo (arg1, arg2, arg3, arg4) {}
-
-  foo(
-    'reallyLongArg',
-    'omgSoManyParameters',
-    'IShouldRefactorThis',
-    'isThereSeriouslyAnotherOne'
-  )
+# Execute:
+#   :e ./template.js
+#   :set ft=javascript
+#   :Prettier
+#   :sleep 2
+#   :w! template.js
+#
+# Expect javascript:
+#   function foo (arg1, arg2, arg3, arg4) {}
+#
+#   foo(
+#     'reallyLongArg',
+#     'omgSoManyParameters',
+#     'IShouldRefactorThis',
+#     'isThereSeriouslyAnotherOne'
+#   )
