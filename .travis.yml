@@ -19,5 +19,4 @@ before_script:
   - $HOME/bin/vim/bin/vim --version
 
 script:
-  - ./run.sh > /dev/null && echo Success || echo Fail
-  - cd ..
+  - ./run.sh > /dev/null
