@@ -8,6 +8,8 @@ Prettier for Vim.
 
 `vim-pritter` is a wrapper of Pritter.
 
+## Motivation
+
 Pritter official document recommends like followings.
 
 ```viml
@@ -17,3 +19,7 @@ autocmd FileType javascript set formatprg=prettier\ --stdin
 `set formatprg` runs sync and it's too slow.
 
 `vim-pritter` runs asynchronously and doesn't block editing.
+
+## License
+
+New BSD License
