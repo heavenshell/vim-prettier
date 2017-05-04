@@ -22,4 +22,4 @@ before_script:
 script:
   - which prettier-eslint
   - pwd
-  - VIM_EXE=$HOME/bin/vim/bin/vim ./run.sh > > /dev/null && echo Success || echo Fail
+  - VIM_EXE=$HOME/bin/vim/bin/vim ./run.sh > /dev/null && echo Success || echo Fail
