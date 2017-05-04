@@ -5,6 +5,7 @@ node_js: stable
 
 install:
   - pwd
+  - vim --version
   - git clone https://github.com/junegunn/vader.vim.git test/vader.vim
   - git clone https://github.com/vim/vim /tmp/vim
   - mkdir ~/bin
