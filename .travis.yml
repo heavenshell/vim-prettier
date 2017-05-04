@@ -19,12 +19,5 @@ before_script:
   - $HOME/bin/vim/bin/vim --version
   - cd $HOME/build/heavenshell/vim-prettier/tests
 
-script: |
-  vim -Nu <(cat << VIMRC
-  filetype off
-  set rtp+=vader.vim
-  set rtp+=.
-  set rtp+=after
-  filetype plugin indent on
-  syntax enable
-  VIMRC) -c 'Vader! *.vader' > /dev/null
+script:
+  - VIM_EXE=$HOME/bin/vim/bin/vim ./run.sh > /dev/null && echo Success || echo Fail
