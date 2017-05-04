@@ -17,6 +17,14 @@ install:
 
 before_script:
   - $HOME/bin/vim/bin/vim --version
+  - cd $HOME/build/heavenshell/vim-prettier/tests
 
-script:
-  - ./run.sh > /dev/null
+script: |
+  vim -Nu <(cat << VIMRC
+  filetype off
+  set rtp+=vader.vim
+  set rtp+=.
+  set rtp+=after
+  filetype plugin indent on
+  syntax enable
+  VIMRC) -c 'Vader! *.vader' > /dev/null
