@@ -8,7 +8,8 @@ After (Teardown tests):
 Execute:
   let bin = prettier#bin()
   Log bin
-  AssertEqual bin, fnamemodify('./node_modules/.bin/prettier-eslint', ':p')
+  Log fnamemodify('node_modules/.bin/prettier-eslint', ':p')
+  AssertEqual bin, fnamemodify('node_modules/.bin/prettier-eslint', ':p')
 
 Execute:
   :e ./template.js
