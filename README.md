@@ -4,6 +4,8 @@
 
 Prettier for Vim.
 
+![Asynchronous format](./assets/vim-pritter.gif)
+
 `vim-pritter` is a wrapper of Pritter.
 
 Pritter official document recommends like followings.
@@ -12,5 +14,6 @@ Pritter official document recommends like followings.
 autocmd FileType javascript set formatprg=prettier\ --stdin
 ```
 
-- `set formatprg` runs sync, but it's too slow
-- `vim-pritter` runs asynchronously and doesn't block editing
+`set formatprg` runs sync and it's too slow.
+
+`vim-pritter` runs asynchronously and doesn't block editing.
