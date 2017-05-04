@@ -77,7 +77,7 @@ function! s:error_callback(ch, msg)
   echomsg printf('fmt err: %s', a:msg)
 endfunction
 
-function! s:exit_callback(ch, msg, current_bufnr, view)
+function! s:exit_callback(ch, msg, current_bufnr)
   " This function is inspiered from haya14busa's gofmt.vim.
   " Copyright 2017 haya14busa. All rights reserved.
   " see also
@@ -90,6 +90,8 @@ function! s:exit_callback(ch, msg, current_bufnr, view)
     return
   endif
 
+  let view = winsaveview()
+
   silent execute '% delete'
   " Preitter v1.0 add extra blank line.
   if s:formatted[len(s:formatted) - 1] == ''
@@ -97,7 +99,7 @@ function! s:exit_callback(ch, msg, current_bufnr, view)
   else
     call setline(1, s:formatted)
   endif
-  call winrestview(a:view)
+  call winrestview(view)
 endfunction
 
 function! prettier#run()
@@ -106,14 +108,13 @@ function! prettier#run()
   endif
   let s:formatted = []
   let bin = prettier#bin()
-  let view = winsaveview()
   let current_bufnr = bufnr('%')
 
   let file = expand('%:p')
   let cmd = bin . ' --stdin'
   let s:job = job_start(cmd, {
         \ 'callback': {c, m -> s:callback(c, m)},
-        \ 'exit_cb': {c, m -> s:exit_callback(c, m, current_bufnr, view)},
+        \ 'exit_cb': {c, m -> s:exit_callback(c, m, current_bufnr)},
         \ 'err_cb': {c, m -> s:error_callback(c, m)},
         \ 'in_io': 'buffer',
         \ 'in_name': file

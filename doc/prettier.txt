@@ -1,6 +1,6 @@
 *prettier*	Pritter for Vim.
 
-Version: 0.1.0
+Version: 0.2.0
 Author: Shinya Ohynagi <sohyanagi@gmail.com>
 Repository: http://github.com/heavenshell/vim-pritter/
 License: BSD, see LICENSE for more details.
@@ -36,20 +36,23 @@ Install the distributed files into Vim runtime directory which is usually
 If you use built in `package`, you should extract the
 file into '~/.vim/pack/*/start' directory.
 
+`vim-prettier` use prettier-eslint-cli.
+
+Install it global or local.
+
 ==============================================================================
 TUTORIAL						*prettier-usage*
->
-  :Pritter
->
-`:Pritter` format JavaScript code in current buffer using Pritter.
+
+Open JavaScript file and just execute `:Prettier`.
 
 ==============================================================================
 VARIABLES					*prettier-variables*
 
 ==============================================================================
 CHANGELOG						*prettier-changelog*
+2017-05-05
+- Fix cursor position
 
-0.1.0
 2017-05-01
 - First release
 
