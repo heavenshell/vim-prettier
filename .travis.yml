@@ -1,4 +1,5 @@
 sudo: required
+dist: xenial
 language: vim
 node_js: stable
 
@@ -20,12 +21,6 @@ before_script:
   - $HOME/bin/vim/bin/vim --version
   - cd $HOME/build/heavenshell/vim-prettier/tests
 
-script: |
-  $HOME/bin/vim/bin/vim -Nu <(cat << VIMRC
-  filetype off
-  set rtp+=vader.vim
-  set rtp+=../.
-  set rtp+=after
-  filetype plugin indent on
-  syntax enable
-  VIMRC) -c 'Vader! *.vader' > /dev/null
+script:
+  - pwd
+  - VIM_EXE=$HOME/bin/vim/bin/vim ./run.sh
