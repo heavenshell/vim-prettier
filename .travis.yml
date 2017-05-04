@@ -19,7 +19,7 @@ install:
   - npm install
 
 before_script:
-  - $HOME/bin/vim/bin/vim --version
+  - which prettier-eslint
   - cd $HOME/build/heavenshell/vim-prettier/tests
 
 script:
