@@ -30,7 +30,7 @@ autocmd FileType javascript set formatprg=prettier\ --stdin
 
 `set formatprg` runs sync and it's too slow.
 
-`vim-pritter` runs asynchronously and doesn't block editing.
+`vim-pritter` runs asynchronously and doesn't block cursor moving.
 
 ## License
 
