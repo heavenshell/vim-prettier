@@ -16,9 +16,17 @@ Install [prettier-eslint-cli](https://github.com/prettier/prettier-eslint-cli) g
 
 ## Usage
 
+### Invoke manually
+
 Open JavaScript file and just execute `:Prettier`.
 
 That's it.
+
+### Automatically format on save
+
+```viml
+autocmd BufWritePost *.js,*.jsx call prettier#run(1)
+```
 
 ## Motivation
 

@@ -77,22 +77,33 @@ function! s:error_callback(ch, msg)
   echomsg printf('fmt err: %s', a:msg)
 endfunction
 
-function! s:exit_callback(ch, msg, current_bufnr)
+function! s:exit_callback(ch, msg, current_bufnr, changedtick, force_write)
   " This function is inspiered from haya14busa's gofmt.vim.
   " Copyright 2017 haya14busa. All rights reserved.
   " see also
   "   https://github.com/haya14busa/vim-gofmt/blob/master/autoload/gofmt.vim
+  if b:changedtick != a:changedtick
+    echohl Error | echomsg 'Format is Canceled. Buffer was edited.' | echohl None
+    return
+  endif
   if a:current_bufnr != bufnr('%')
     echomsg 'Formatted buffer is changed.'
     return
   endif
+
+  let view = winsaveview()
+  if a:force_write == 'file'
+    e!
+    call winrestview(view)
+    return
+  endif
+
   if len(s:formatted) == 0
     return
   endif
 
-  let view = winsaveview()
-
   silent execute '% delete'
+
   " Preitter v1.0 add extra blank line.
   if s:formatted[len(s:formatted) - 1] == ''
     call setline(1, s:formatted[0:len(s:formatted) - 2])
@@ -102,22 +113,27 @@ function! s:exit_callback(ch, msg, current_bufnr)
   call winrestview(view)
 endfunction
 
-function! prettier#run()
+function! prettier#run(...)
   if exists('s:job') && job_status(s:job) != 'stop'
     call job_stop(s:job)
   endif
   let s:formatted = []
   let bin = prettier#bin()
   let current_bufnr = bufnr('%')
+  let changedtick = b:changedtick
 
   let file = expand('%:p')
+  let mode = a:0 > 0 ? 'file' : 'buffer'
   let cmd = bin . ' --stdin'
+  if mode == 'file'
+    let cmd = bin . ' --write ' . file
+  endif
   let s:job = job_start(cmd, {
         \ 'callback': {c, m -> s:callback(c, m)},
-        \ 'exit_cb': {c, m -> s:exit_callback(c, m, current_bufnr)},
+        \ 'exit_cb': {c, m -> s:exit_callback(c, m, current_bufnr, changedtick, mode)},
         \ 'err_cb': {c, m -> s:error_callback(c, m)},
-        \ 'in_io': 'buffer',
-        \ 'in_name': file
+        \ 'in_io': mode,
+        \ 'in_name': file,
         \ })
 endfunction
 

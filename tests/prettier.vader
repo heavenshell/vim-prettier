@@ -1,20 +1,20 @@
 # vim:set et sw=4 ts=4 tw=79:
 Before (Setup tests):
-  :call system('cp ./_template.js ./template.js')
+  call system('cp ./_template.js ./template.js')
 
 After (Teardown tests):
-  :call delete('./template.js')
+  call delete('./template.js')
 
-Execute:
+Execute ('Detect prettier-eslint'):
   let bin = prettier#bin()
   AssertEqual fnamemodify(bin, ':p'), fnamemodify('node_modules/.bin/prettier-eslint', ':p')
 
-Execute:
-  :e ./template.js
-  :set ft=javascript
-  :Prettier
-  :sleep 2
-  :w! template.js
+Execute ('Format'):
+  edit ./template.js
+  set ft=javascript
+  Prettier
+  sleep 2
+  write! template.js
 
 Expect javascript:
   function foo (arg1, arg2, arg3, arg4) {}

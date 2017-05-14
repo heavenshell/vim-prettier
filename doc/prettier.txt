@@ -43,13 +43,26 @@ Install it global or local.
 ==============================================================================
 TUTORIAL						*prettier-usage*
 
+- Invoke manually
+
 Open JavaScript file and just execute `:Prettier`.
+
+If bufrer was edited while `Preitter` executing, `Prettier` would be canceled.
+
+- Automatically format on save
+>
+  autocmd BufWritePost *.js,*.jsx call prettier#run(1)
+>
 
 ==============================================================================
 VARIABLES					*prettier-variables*
 
 ==============================================================================
 CHANGELOG						*prettier-changelog*
+2017-05-09
+- Cancel prettier if buffer was edited.
+- Add Automatically format on save
+
 2017-05-05
 - Fix cursor position
 
